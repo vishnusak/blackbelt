@@ -20,4 +20,6 @@
   - [x] If the user does not have friends yet, the top part says "You don't have friends yet."
   - [x] Add/Remove Friend feature. When a user has been added as a friend, the logged user is also added on the newly added user's list of friends.
   - [x] Logout
-  - [x] Deployed to Amazon EC2 and provide the IP address in text file
+  - [x] Deployed to Amazon EC2 (IP Address below)
+
+### IP Address: 52.40.194.87
