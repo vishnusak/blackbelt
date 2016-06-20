@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Friends | Main</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <!-- <link rel="stylesheet" href="..\static\css\common.css"> -->
+    <!-- <link rel="stylesheet" href="..\static\css\main.css"> -->
+  </head>
+  <body>
+    <header>
+      <h1>Friends</h1>
+      {% if session['user_id'] %}
+        <h3><a href="/friends">Home</a></h3>
+        <h3><a href="/logout">Log Out</a></h3>
+      {% endif %}
+    </header>
+    <main>
+      <h2>Welcome!</h2>
+      <div class="lreg">
+        <form class="login" action="/register" method="post">
+          <fieldset>
+            <legend>Register</legend>
+
+            {% if session['err']['name'] %}
+            <p class="err">{{ session['err']['name'] }}</p>
+            <label>
+              <p>Name: </p><input type="text" name="name">
+            </label>
+            {% else %}
+            <label>
+              <p>Name: </p><input type="text" name="name" value="{{ session['form']['name'] }}">
+            </label>
+            {% endif %}
+
+            {% if session['err']['alias'] %}
+            <p class="err">{{ session['err']['alias'] }}</p>
+            <label>
+              <p>Alias: </p><input type="text" name="alias">
+            </label>
+            {% else %}
+            <label>
+              <p>Alias: </p><input type="text" name="alias" value="{{ session['form']['alias'] }}">
+            </label>
+            {% endif %}
+
+            {% if session['err']['email'] %}
+            <p class="err">{{ session['err']['email'] }}</p>
+            <label>
+              <p>eMail: </p><input type="text" name="email">
+            </label>
+            {% else %}
+            <label>
+              <p>eMail: </p><input type="text" name="email" value="{{ session['form']['email'] }}">
+            </label>
+            {% endif %}
+
+            {% if session['err']['pwd'] %}
+            <p class="err">{{ session['err']['pwd'] }}</p>
+            {% endif %}
+            <label>
+              <p>Password: </p><input type="password" name="pwd">
+            </label>
+
+            {% if session['err']['cpwd'] %}
+            <p class="err">{{ session['err']['cpwd'] }}</p>
+            {% endif %}
+            <label>
+              <p>Confirm Password: </p><input type="password" name="cpwd">
+            </label>
+
+            {% if session['err']['dob'] %}
+            <p class="err">{{ session['err']['dob'] }}</p>
+            <label>
+              <p>Date of Birth: </p><input type="date" name="dob">
+            </label>
+            {% else %}
+            <label>
+              <p>Date of Birth: </p><input type="date" name="dob" value="{{ session['form']['dob'] }}">
+            </label>
+            {% endif %}
+
+            <input type="submit" value="Register">
+          </fieldset>
+        </form>
+        <form class="login" action="/login" method="post">
+          <fieldset>
+            <legend>Login</legend>
+
+            {% if session['err']['lemail'] %}
+            <p class="err">{{ session['err']['lemail'] }}</p>
+            <label>
+              <p>eMail: </p><input type="text" name="email">
+            </label>
+            {% else %}
+            <label>
+              <p>eMail: </p><input type="text" name="email" value="{{ session['form']['lemail'] }}">
+            </label>
+            {% endif %}
+
+            {% if session['err']['lpwd'] %}
+            <p class="err">{{ session['err']['lpwd'] }}</p>
+            {% endif %}
+            <label>
+              <p>Password: </p><input type="password" name="pwd">
+            </label>
+
+            <input type="submit" value="Login">
+          </fieldset>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

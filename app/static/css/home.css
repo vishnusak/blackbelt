@@ -1,0 +1,49 @@
+main{
+  position: absolute;
+  top: 6vh;
+  left: 5vw;
+  width: 90%;
+  height: 94vh;
+  background-color: rgb(240, 240, 240);
+  overflow-y: auto;
+}
+  main h2{
+    text-align: center;
+    margin: 5vh auto;
+  }
+  hr{
+    margin: 2vh 1vw;
+  }
+  .top,
+  .bottom{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 1vh auto;
+    padding: 1vh 1vw;
+  }
+    .top h3,
+    .bottom h3{
+      margin: 1vh;
+    }
+    .top>table,
+    .bottom>table{
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .top>table th,
+    .top>table td,
+    .bottom>table th,
+    .bottom>table td{
+      border: 1px solid rgb(34, 34, 34);
+      width: 50%;
+      text-align: center;
+    }
+    .top>table th,
+    .bottom>table th{
+      background-color: rgb(34, 34, 34);
+      color: rgb(240, 240, 240);
+    }
+    .top>table td span{
+      margin: 0 1vw;
+    }

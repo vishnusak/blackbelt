@@ -1,0 +1,62 @@
+main{
+  position: absolute;
+  top: 6vh;
+  left: 5vw;
+  width: 90%;
+  height: 94vh;
+  background-color: rgb(240, 240, 240);
+  overflow-y: auto;
+}
+  main h2{
+    text-align: center;
+    margin: 5vh auto;
+  }
+  .lreg{
+    display: flex;
+    justify-content: space-around;
+  }
+    .login{
+      width: 45%;
+    }
+      .login fieldset{
+        border: 1px solid rgb(34, 34, 34);
+        padding: 2vh 2vw;
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+      }
+        legend{
+          font-size: 1.5rem;
+        }
+        label{
+          width: 100%;
+          margin: 1vh auto;
+          display: flex;
+          justify-content: space-between;
+        }
+          label p{
+            text-align: right;
+            padding: 0.5vh 1vw;
+            width: 30%;
+            font-size: 0.9rem;
+          }
+          label input{
+            width: 70%;
+            font-size: 1rem;
+            padding: 0.5vh 0.5vw;
+          }
+        input[type='submit']{
+          display: block;
+          width: 20%;
+          padding: 1vh 1vw;
+          margin: auto 0 auto auto;
+          font-size: 1rem;
+        }
+        .err{
+          background-color: rgb(34, 34, 34);
+          color: red;
+          font-style: italic;
+          padding: 0 1vw;
+          width: 70%;
+          margin: auto 0 auto auto;
+        }

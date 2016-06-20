@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Friends | Home</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <!-- <link rel="stylesheet" href="..\static\css\common.css"> -->
+    <!-- <link rel="stylesheet" href="..\static\css\home.css"> -->
+  </head>
+  <body>
+    <header>
+      <h1>Friends</h1>
+      {% if session['user_id'] %}
+        <h3><a href="/friends">Home</a></h3>
+        <h3><a href="/logout">Log Out</a></h3>
+      {% endif %}
+    </header>
+    <main>
+      <h2>Hello, {{ session['user_alias'] }}!</h2>
+
+      {% if session['friends'] %}
+      <div class="top">
+        <h3>Here is the list of your friends</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Alias</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for friend in session['friends'] %}
+              <tr>
+                <td>{{ friend['alias'] }}</td>
+                <td><a href="/friends/{{ friend['id'] }}#">View Profile</a><span>|</span><a href="/friends/{{ friend['id'] }}/remove">Remove as Friend</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="top">
+        <h2>You don't have friends yet</h2>
+      </div>
+      {% endif %}
+
+      <hr />
+
+      {% if session['others'] %}
+      <div class="bottom">
+        <h3>Other users not on your friends list</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Alias</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for other in session['others'] %}
+              <tr>
+                <td><a href="/friends/{{ other['id'] }}">{{ other['alias'] }}</a></td>
+                <td><a href="/friends/{{ other['id'] }}/add">Add as Friend</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="bottom">
+        <h2>Nothing to Show here</h2>
+      </div>
+      {% endif %}
+
+    </main>
+  </body>
+</html>
