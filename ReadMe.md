@@ -22,4 +22,4 @@
   - [x] Logout
   - [x] Deployed to Amazon EC2 (IP Address below)
 
-### IP Address: 52.40.194.87
+### IP Address: http://52.40.194.87
